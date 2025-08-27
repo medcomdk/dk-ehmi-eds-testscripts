@@ -1,0 +1,40 @@
+id: medcom.fhir.dk.edstestscripts
+canonical: http://medcomfhir.dk/ig/edstestscripts
+name: EDSTestScripts
+title: EDS Test Scripts
+description: Testscripts for EHMI Delivery Service (EDS). Aka. EHMI Track n' Trace.
+status: draft # draft | active | retired | unknown
+version: 0.1.0
+fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
+copyrightYear: 2025+
+releaseLabel: ci-build
+jurisdiction: urn:iso:std:iso:3166#DK "Denmark"
+publisher:
+  name: MedCom
+  url: https://medcom.dk
+  email: fhir@medcom.dk
+
+# dependencies:
+#   hl7.fhir.us.core: 3.1.0
+#   hl7.fhir.us.mcode:
+#     id: mcode
+#     uri: http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode
+#     version: 1.0.0
+
+menu:
+  Home: index.html
+  TouchStone Test Scripts: testscripts.html
+  Test Examples - Test Protocol: testexamples.html # if relevant
+  Artifacts: artifacts.html
+  More:
+    Table of Contents: toc.html
+    Downloads: downloads.html
+    Dependencies: dependencies.html
+
+parameters:
+  apply-version: false
+  default-version: true
+  apply-publisher: false
+  default-publisher: true
+  pin-canonicals: pin-multiples
+  excludettl: true
