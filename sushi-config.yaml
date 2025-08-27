@@ -1,5 +1,5 @@
-id: medcom.fhir.dk.edstestscripts
-canonical: http://medcomfhir.dk/ig/edstestscripts
+id: medcom.ehmi.dk.edstestscripts
+canonical: http://medcomehmi.dk/ig/edstestscripts
 name: EDSTestScripts
 title: EDS Test Scripts
 description: Testscripts for EHMI Delivery Service (EDS). Aka. EHMI Track n' Trace.
