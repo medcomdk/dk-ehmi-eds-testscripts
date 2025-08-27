@@ -12,14 +12,10 @@ jurisdiction: urn:iso:std:iso:3166#DK "Denmark"
 publisher:
   name: MedCom
   url: https://medcom.dk
-  email: fhir@medcom.dk
+  email: ehmi@medcom.dk
 
-# dependencies:
-#   hl7.fhir.us.core: 3.1.0
-#   hl7.fhir.us.mcode:
-#     id: mcode
-#     uri: http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode
-#     version: 1.0.0
+dependencies:
+  dk.ehmi.eds: dev
 
 menu:
   Home: index.html
