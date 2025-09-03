@@ -4,10 +4,12 @@ Description: "A fixture representing an EdsPatientDeliveryStatus resource sent f
 * contained[+] = C1EUASenderDeviceFixture
 * type = $EhmiDeliveryStatusTypes#ehmiMessaging "EHMI messaging event"
 * subtype[msg-created-and-sent] = #msg-created-and-sent "Message created and sent"
-* recorded = "1970-01-01T00:00:00.000+02:00" 
+* recorded = "1970-01-01T00:00:00.000+02:00" // Replaced by Touchstone CurrentDateTime function
 * outcome = $Hl7AuditOutcomeTypes#0 "Success"
 
-* agent[ehmiSender].name = "Aarhus Kommune - Sundhed og Omsorg - D-CS-C6-CE"
+* id = "C1EUAToEdsFixture"
+
+* agent[ehmiSender].name = "Aarhus Kommune - Sundhed og Omsorg"
 * agent[ehmiSender].requestor = true
 * agent[ehmiSender].type.coding = $EhmiDeliveryStatusParticipationRoleType#ehmiSender "Sender"
 // TODO TELL OLE: The StructureDefinition in EDS should be changed so it has to be an EER organization
@@ -17,7 +19,7 @@ Description: "A fixture representing an EdsPatientDeliveryStatus resource sent f
 * agent[ehmiSender].extension[GLNId][gln].valueIdentifier.type = $EhmiDeliveryStatusAgentWhoIdentifierTypes#GLN 
 * agent[ehmiSender].extension[GLNId][gln].valueIdentifier.value = "GLN-1234"
 
-* agent[ehmiReceiver].name = "Lægerne Stjernepladsen I/S - D-CS-C6-CE"
+* agent[ehmiReceiver].name = "Lægerne Stjernepladsen I/S"
 * agent[ehmiReceiver].requestor = false
 * agent[ehmiReceiver].type.coding = $EhmiDeliveryStatusParticipationRoleType#ehmiReceiver "Receiver"
 // TODO TELL OLE: The StructureDefinition in EDS should be changed so it has to be an EER organization
