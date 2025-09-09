@@ -8,6 +8,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+# D = Dollarsign. CS = Curly bracket Start. CX = Touchstone Placeholder CX. CE = Curly bracket End.
 REPLACEMENTS = {
     "D-CS-C1-CE": "${C1}",
     "D-CS-C2-CE": "${C2}",
