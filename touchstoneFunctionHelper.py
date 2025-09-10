@@ -217,6 +217,17 @@ def merge_move(src: Path, dst: Path, dry_run: bool) -> None:
                     shutil.move(str(item), str(target))
                 except Exception as e:
                     print(f"❌ Failed to move file {item} -> {target}: {e}")
+        elif item.is_dir():
+            if dry_run:
+                print(f"🧪 Would merge/move directory: {item} -> {target} (overwrite contents)")
+            else:
+                try:
+                    if target.exists() and not target.is_dir():
+                        target.unlink()
+                    shutil.copytree(item, target, dirs_exist_ok=True)
+                    shutil.rmtree(item)
+                except Exception as e:
+                    print(f"❌ Failed to merge/move dir {item} -> {target}: {e}")
         else:
             print(f"⚠️  Skipping non-file: {item}")
 
