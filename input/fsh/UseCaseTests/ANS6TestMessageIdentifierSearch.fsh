@@ -27,36 +27,37 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 * test[+].id = "CreatePatientDeliveryStatus"
 * test[=].name = "ANS6 Create"
 * test[=].description = "Use case ANS6 create PatientDeliveryStatus object on the SUT in order to search for it later"
-* test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#create
+* test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#update
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Create a PatientDeliveryStatus AuditEvent resource on the SUT"
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
 * test[=].action[=].operation.sourceId = "C1EUAEDSPatientDeliveryStatus"
+* test[=].action[=].operation.params = "/${IdOfResourceToBeCreated}"
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent was created"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.response = #created
 * test[=].action[=].assert.warningOnly = false
 
 * variable[+].name = "ehmiMessageIdentifierOfCreatedResource"
-* variable[=].expression = "entity.detail.where(type = 'ehmiMessage').what.identifier.value"
+* variable[=].expression = "entity.where(type.code = 'ehmiMessage').what.identifier.value"
 * variable[=].sourceId = "C1EUAEDSPatientDeliveryStatus"
 
 * variable[+].name = "ehmiMessageEnvelopeIdentifierOfCreatedResource"
-* variable[=].expression = "entity.detail.where(type = 'ehmiMessageEnvelope').what.identifier.value"
+* variable[=].expression = "entity.where(type.code = 'ehmiMessageEnvelope').what.identifier.value"
 * variable[=].sourceId = "C1EUAEDSPatientDeliveryStatus"
 
 * variable[+].name = "ehmiTransportEnvelopeIdentifierOfCreatedResource"
-* variable[=].expression = "entity.detail.where(type = 'ehmiTransportEnvelope').what.identifier.value"
+* variable[=].expression = "entity.where(type.code = 'ehmiTransportEnvelope').what.identifier.value"
 * variable[=].sourceId = "C1EUAEDSPatientDeliveryStatus"
 
 * variable[+].name = "ehmiOrigMessageIdentifierOfCreatedResource"
-* variable[=].expression = "entity.detail.where(type = 'ehmiOrigMessage').what.identifier.value"
+* variable[=].expression = "entity.where(type.code = 'ehmiOrigMessage').what.identifier.value"
 * variable[=].sourceId = "C1EUAEDSPatientDeliveryStatus"
 
 * variable[+].name = "ehmiOrigTransportEnvelopeIdentifierOfCreatedResource"
-* variable[=].expression = "entity.detail.where(type = 'ehmiOrigTransportEnvelope').what.identifier.value"
+* variable[=].expression = "entity.where(type.code = 'ehmiOrigTransportEnvelope').what.identifier.value"
 * variable[=].sourceId = "C1EUAEDSPatientDeliveryStatus"
 
 * test[+].id = "SearchPatientDeliveryStatusWithEhmiMessageIdentifier"
@@ -68,12 +69,12 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
-* test[=].action[=].operation.params = "?ehmiIdentifier=${ehmiMessageIdentifierOfCreatedResource}"
+* test[=].action[=].operation.params = "?entityIdentifier=${ehmiMessageIdentifierOfCreatedResource}"
 
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is found"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
-* test[=].action[=].assert.path = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
+* test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "1"
 
@@ -86,12 +87,12 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
-* test[=].action[=].operation.params = "?ehmiIdentifier=${ehmiMessageEnvelopeIdentifierOfCreatedResource}"
+* test[=].action[=].operation.params = "?entityIdentifier=${ehmiMessageEnvelopeIdentifierOfCreatedResource}"
 
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is found"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
-* test[=].action[=].assert.path = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
+* test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "1"
 
@@ -104,12 +105,12 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
-* test[=].action[=].operation.params = "?ehmiIdentifier=${ehmiTransportEnvelopeIdentifierOfCreatedResource}"
+* test[=].action[=].operation.params = "?entityIdentifier=${ehmiTransportEnvelopeIdentifierOfCreatedResource}"
 
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is found"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
-* test[=].action[=].assert.path = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
+* test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "1"
 
@@ -122,12 +123,12 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
-* test[=].action[=].operation.params = "?ehmiIdentifier=${ehmiOrigMessageIdentifierOfCreatedResource}"
+* test[=].action[=].operation.params = "?entityIdentifier=${ehmiOrigMessageIdentifierOfCreatedResource}"
 
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is found"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
-* test[=].action[=].assert.path = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
+* test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "1"
 
@@ -140,12 +141,12 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
-* test[=].action[=].operation.params = "?ehmiIdentifier=${ehmiOrigTransportEnvelopeIdentifierOfCreatedResource}"
+* test[=].action[=].operation.params = "?entityIdentifier=${ehmiOrigTransportEnvelopeIdentifierOfCreatedResource}"
 
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is found"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
-* test[=].action[=].assert.path = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
+* test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "1"
 
@@ -158,11 +159,11 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
-* test[=].action[=].operation.params = "?ehmiIdentifier=invalid"
+* test[=].action[=].operation.params = "?entityIdentifier=invalid"
 
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is not found"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
-* test[=].action[=].assert.path = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
+* test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "0"

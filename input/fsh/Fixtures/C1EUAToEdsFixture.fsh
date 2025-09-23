@@ -3,7 +3,7 @@ InstanceOf: EdsPatientDeliveryStatus
 Description: "A fixture representing an EdsPatientDeliveryStatus resource sent from an EUA to EDS."
 * contained[+] = C1EUASenderDeviceFixture
 * type = $EhmiDeliveryStatusTypes#ehmiMessaging "EHMI messaging event"
-* subtype[msg-created-and-sent] = #msg-created-and-sent "Message created and sent"
+* subtype = $EdsSubtypes#msg-created-and-sent "Message created and sent"
 * recorded = "1970-01-01T00:00:00.000+02:00" // Replaced by Touchstone CurrentDateTime function
 * outcome = $Hl7AuditOutcomeTypes#0 "Success"
 
@@ -11,53 +11,55 @@ Description: "A fixture representing an EdsPatientDeliveryStatus resource sent f
 
 * agent[ehmiSender].name = "Aarhus Kommune - Test D-CS-C6-CE"
 * agent[ehmiSender].requestor = true
-* agent[ehmiSender].type.coding = $EhmiDeliveryStatusParticipationRoleType#ehmiSender "Sender"
-// TODO TELL OLE: The StructureDefinition in EDS should be changed so it has to be an EER organization
-* agent[ehmiSender].who.reference = "http://medcomehmi.eer.dk/Organization/1D-CS-C15-CE" // Does not exist, is just a random reference
+* agent[ehmiSender].type = $EhmiDeliveryStatusParticipationRoleType#ehmiSender "Sender"
 * agent[ehmiSender].who.display = "Aarhus Kommune"
 * agent[ehmiSender].who.identifier.value = "1D-CS-C15-CE"
-* agent[ehmiSender].extension[GLNId][gln].valueIdentifier.type = $EhmiDeliveryStatusAgentWhoIdentifierTypes#GLN 
-* agent[ehmiSender].extension[GLNId][gln].valueIdentifier.value = "1D-CS-C12-CE"
+* agent[ehmiSender].extension[GLNId].valueIdentifier.type = $EhmiDeliveryStatusAgentWhoIdentifierTypes#GLN 
+* agent[ehmiSender].extension[GLNId].valueIdentifier.value = "1D-CS-C12-CE"
 
 * agent[ehmiReceiver].name = "Lægerne Stjernepladsen - Test D-CS-C6-CE"
 * agent[ehmiReceiver].requestor = false
-* agent[ehmiReceiver].type.coding = $EhmiDeliveryStatusParticipationRoleType#ehmiReceiver "Receiver"
-// TODO TELL OLE: The StructureDefinition in EDS should be changed so it has to be an EER organization
-* agent[ehmiReceiver].who.reference = "http://medcomehmi.eer.dk/Organization/2D-CS-C15-CE" // Does not exist, is just a random reference
+* agent[ehmiReceiver].type = $EhmiDeliveryStatusParticipationRoleType#ehmiReceiver "Receiver"
 * agent[ehmiReceiver].who.display = "Lægerne Stjernepladsen I/S"
 * agent[ehmiReceiver].who.identifier.value = "2D-CS-C15-CE"
-* agent[ehmiReceiver].extension[GLNId][gln].valueIdentifier.type = $EhmiDeliveryStatusAgentWhoIdentifierTypes#GLN 
-* agent[ehmiReceiver].extension[GLNId][gln].valueIdentifier.value = "2D-CS-C12-CE"
+* agent[ehmiReceiver].extension[GLNId].valueIdentifier.type = $EhmiDeliveryStatusAgentWhoIdentifierTypes#GLN 
+* agent[ehmiReceiver].extension[GLNId].valueIdentifier.value = "2D-CS-C12-CE"
 
-* source.observer = Reference(Device/s-01-EUA-Sender)
-* source.type.code = $EhmiDeliveryStatusSourceType#EUA
-* source.type.system = $EhmiDeliveryStatusSourceType
+* source.observer = Reference(C1EUASenderDeviceFixture)
+* source.type = $EhmiDeliveryStatusSourceType#EUA "EUA (End-user Application)"
 
-// TODO TELL OLE: The StructureDefinition in EDS should be changed so it has to be a patient CPR or something?
 * entity[ehmiPatient].what.identifier.value = "D-CS-C10-CE"
+* entity[ehmiPatient].type = $EhmiDeliveryStatusEntityType#ehmiPatient "Patient"
 
-* entity[ehmiMessage].type = $EhmiDeliveryStatusEntityType#ehmiMessage
-* entity[ehmiMessage].what.identifier.value = "81a2dc8f-7638-4d78-8b87-2d65244f4756"
-* entity[ehmiMessage].detail[ehmiMessageType].type = $EhmiDeliveryStatusEntityDetailType#ehmiMessageType
+* entity[ehmiMessage].what.identifier.value = "D-CS-C11-CE"
+* entity[ehmiMessage].type = $EhmiDeliveryStatusEntityType#ehmiMessage "Message"
+* entity[ehmiMessage].detail[ehmiMessageType].type = #ehmiMessageType
 * entity[ehmiMessage].detail[ehmiMessageType].valueString = "HomeCareObservation"
-* entity[ehmiMessage].detail[ehmiMessageVersion].type = $EhmiDeliveryStatusEntityDetailType#ehmiMessageVersion
+* entity[ehmiMessage].detail[ehmiMessageVersion].type = #ehmiMessageVersion
 * entity[ehmiMessage].detail[ehmiMessageVersion].valueString = "1.1"
 
-// TODO TELL OLE: The StructureDefinition in EDS does not require this to be set, but does require atleast three entity... I'm guessing it's an oversight that this is not required
-* entity[ehmiMessageEnvelope].type = $EhmiDeliveryStatusEntityType#ehmiMessageEnvelope
+* entity[ehmiMessageEnvelope].type = $EhmiDeliveryStatusEntityType#ehmiMessageEnvelope "Message Envelope"
 * entity[ehmiMessageEnvelope].what.identifier.value = "9f322022-7857-4453-a1ed-1e4a62dd8543"
-* entity[ehmiMessageEnvelope].detail[ehmiMessageEnvelopeType].type = $EhmiDeliveryStatusEntityDetailType#ehmiMessageEnvelopeType
+* entity[ehmiMessageEnvelope].detail[ehmiMessageEnvelopeType].type = #ehmiMessageEnvelopeType
 * entity[ehmiMessageEnvelope].detail[ehmiMessageEnvelopeType].valueString = "21bfa788-df1e-445d-95dc-56ea7a2fcd5b"
 
-* entity[ehmiTransportEnvelope].type = $EhmiDeliveryStatusEntityType#ehmiTransportEnvelope
+* entity[ehmiTransportEnvelope].type = $EhmiDeliveryStatusEntityType#ehmiTransportEnvelope "Transport Envelope"
 * entity[ehmiTransportEnvelope].what.identifier.value = "0b682f55-eca9-4915-b8b5-675c3320ca93"
+* entity[ehmiTransportEnvelope].detail[ehmiTransportEnvelopeType].type = #ehmiTransportEnvelopeType
+* entity[ehmiTransportEnvelope].detail[ehmiTransportEnvelopeType].valueString = "SBDH"
+* entity[ehmiTransportEnvelope].detail[ehmiTransportEnvelopeVersion].type = #ehmiTransportEnvelopeVersion
+* entity[ehmiTransportEnvelope].detail[ehmiTransportEnvelopeVersion].valueString = "2.0"
 
-* entity[ehmiOrigMessage].type = $EhmiDeliveryStatusEntityType#ehmiOrigMessage
+* entity[ehmiOrigMessage].type = $EhmiDeliveryStatusEntityType#ehmiOrigMessage "Original Message"
 * entity[ehmiOrigMessage].what.identifier.value = "c38778b5-48c9-4243-b956-f9f754bdbc67"
-* entity[ehmiOrigMessage].detail[ehmiMessageType].type = $EhmiDeliveryStatusEntityDetailType#ehmiMessageType
+* entity[ehmiOrigMessage].detail[ehmiMessageType].type = #ehmiMessageType
 * entity[ehmiOrigMessage].detail[ehmiMessageType].valueString = "HomeCareObservation"
-* entity[ehmiOrigMessage].detail[ehmiMessageVersion].type = $EhmiDeliveryStatusEntityDetailType#ehmiMessageVersion
+* entity[ehmiOrigMessage].detail[ehmiMessageVersion].type = #ehmiMessageVersion
 * entity[ehmiOrigMessage].detail[ehmiMessageVersion].valueString = "1.1"
 
-* entity[ehmiOrigTransportEnvelope].type = $EhmiDeliveryStatusEntityType#ehmiOrigTransportEnvelope
+* entity[ehmiOrigTransportEnvelope].type = $EhmiDeliveryStatusEntityType#ehmiOrigTransportEnvelope "Original Transport Envelope"
 * entity[ehmiOrigTransportEnvelope].what.identifier.value = "389ebc9f-792e-43e6-8943-dda5632a7654"
+* entity[ehmiOrigTransportEnvelope].detail[ehmiTransportEnvelopeType].type = #ehmiTransportEnvelopeType
+* entity[ehmiOrigTransportEnvelope].detail[ehmiTransportEnvelopeType].valueString = "SBDH"
+* entity[ehmiOrigTransportEnvelope].detail[ehmiTransportEnvelopeVersion].type = #ehmiTransportEnvelopeVersion
+* entity[ehmiOrigTransportEnvelope].detail[ehmiTransportEnvelopeVersion].valueString = "2.0"

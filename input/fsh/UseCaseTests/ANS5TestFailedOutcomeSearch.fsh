@@ -10,7 +10,7 @@ Description: "Test script for the ANS.5 use case. Searching for messages with a 
 * fixture[+].id = "C1EUAEDSFailurePatientDeliveryStatus"
 * fixture[=].autocreate = false
 * fixture[=].autodelete = false
-* fixture[=].resource.reference = "./Fixtures/AuditEvent-C1EUAToEdsFixture.json"
+* fixture[=].resource.reference = "./Fixtures/AuditEvent-C1EUAToEdsFailureFixture.json"
 
 * variable[+].name = "IdOfResourceToBeCreated"
 * variable[=].expression = "id"
@@ -27,13 +27,14 @@ Description: "Test script for the ANS.5 use case. Searching for messages with a 
 * test[+].id = "CreatePatientDeliveryStatus"
 * test[=].name = "ANS6 Create"
 * test[=].description = "Use case ANS6 create PatientDeliveryStatus object on the SUT in order to search for it later"
-* test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#create
+* test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#update
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Create a PatientDeliveryStatus AuditEvent resource on the SUT"
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
 * test[=].action[=].operation.sourceId = "C1EUAEDSFailurePatientDeliveryStatus"
+* test[=].action[=].operation.params = "/${IdOfResourceToBeCreated}"
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent was created"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.response = #created
@@ -57,7 +58,7 @@ Description: "Test script for the ANS.5 use case. Searching for messages with a 
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is found"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
-* test[=].action[=].assert.path = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
+* test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "1"
 
@@ -75,6 +76,6 @@ Description: "Test script for the ANS.5 use case. Searching for messages with a 
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is not found"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
-* test[=].action[=].assert.path = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
+* test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "0"

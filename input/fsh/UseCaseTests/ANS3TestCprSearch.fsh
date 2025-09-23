@@ -27,13 +27,14 @@ Description: "Test script for the ANS.3 use case. Searching with CPR"
 * test[+].id = "CreatePatientDeliveryStatus"
 * test[=].name = "ANS3 Create"
 * test[=].description = "Use case ANS3 create PatientDeliveryStatus object on the SUT in order to search for it later"
-* test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#create
+* test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#update
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Create a PatientDeliveryStatus AuditEvent resource on the SUT"
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
 * test[=].action[=].operation.sourceId = "C1EUAEDSPatientDeliveryStatus"
+* test[=].action[=].operation.params = "/${IdOfResourceToBeCreated}"
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent was created"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.response = #created
@@ -57,7 +58,7 @@ Description: "Test script for the ANS.3 use case. Searching with CPR"
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is found"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
-* test[=].action[=].assert.path = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
+* test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "1"
 
@@ -75,6 +76,6 @@ Description: "Test script for the ANS.3 use case. Searching with CPR"
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is not found with an invalid CPR"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
-* test[=].action[=].assert.path = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
+* test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "0"
