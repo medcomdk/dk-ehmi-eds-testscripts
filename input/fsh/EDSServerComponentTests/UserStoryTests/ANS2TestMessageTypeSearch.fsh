@@ -1,8 +1,8 @@
-Instance: ANS3TestCprSearch
+Instance: ANS2TestMessageTypeSearch
 InstanceOf: TestScript
-Title: "Test for ANS.3 - CPR Searching"
-Description: "Test script for the ANS.3 use case. Searching with CPR"
-* insert Metadata(ANS3TestCprSearch)
+Title: "Test for ANS.2 - Message Type Searching"
+Description: "Test script for the ANS.2 user story. Searching for a specific message type"
+* insert Metadata(ANS2TestMessageTypeSearch)
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer
@@ -25,8 +25,8 @@ Description: "Test script for the ANS.3 use case. Searching with CPR"
 * setup[=].action[=].operation.params = "/${IdOfResourceToBeCreated}"
 
 * test[+].id = "CreatePatientDeliveryStatus"
-* test[=].name = "ANS3 Create"
-* test[=].description = "Use case ANS3 create PatientDeliveryStatus object on the SUT in order to search for it later"
+* test[=].name = "ANS2 Create"
+* test[=].description = "user story ANS2 create PatientDeliveryStatus object on the SUT in order to search for it later"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#update
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Create a PatientDeliveryStatus AuditEvent resource on the SUT"
@@ -40,20 +40,20 @@ Description: "Test script for the ANS.3 use case. Searching with CPR"
 * test[=].action[=].assert.response = #created
 * test[=].action[=].assert.warningOnly = false
 
-* variable[+].name = "CPROfPatientInCreatedResource"
-* variable[=].expression = "entity.where(type.code = 'ehmiPatient').what.identifier.value"
+* variable[+].name = "MessageTypeOfCreatedResource"
+* variable[=].expression = "entity.detail.where(type = 'ehmiMessageType').value"
 * variable[=].sourceId = "C1EUAEDSPatientDeliveryStatus"
 
-* test[+].id = "SearchPatientDeliveryStatusWithCPR"
-* test[=].name = "ANS3 search"
-* test[=].description = "Use case ANS3 search for the created PatientDeliveryStatus object on the SUT with cpr"
+* test[+].id = "SearchPatientDeliveryStatusWithMessageType"
+* test[=].name = "ANS2 search"
+* test[=].description = "user story ANS2 search for the created PatientDeliveryStatus object on the SUT with ehmiMessageType"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
-* test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the CPR being ${CPROfPatientInCreatedResource}"
+* test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the type being ${MessageTypeOfCreatedResource}"
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
-* test[=].action[=].operation.params = "?cpr=${CPROfPatientInCreatedResource}"
+* test[=].action[=].operation.params = "?ehmiMessageType=${MessageTypeOfCreatedResource}"
 
 * test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is found"
 * test[=].action[=].assert.direction = #response
@@ -62,18 +62,18 @@ Description: "Test script for the ANS.3 use case. Searching with CPR"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "1"
 
-* test[+].id = "SearchPatientDeliveryStatusInvalidCPR"
-* test[=].name = "ANS3 invalid search"
-* test[=].description = "Use case ANS3 search for the created PatientDeliveryStatus object on the SUT with an invalid CPR. Not expecting to find it"
+* test[+].id = "SearchPatientDeliveryStatusInvalidMessageType"
+* test[=].name = "ANS2 invalid search"
+* test[=].description = "user story ANS2 search for the created PatientDeliveryStatus object on the SUT with an invalid message type. Not expecting to find it"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
-* test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with an invalid CPR"
+* test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with an invalid message type"
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
 * test[=].action[=].operation.destination = 1
-* test[=].action[=].operation.params = "?cpr=invalid"
+* test[=].action[=].operation.params = "?ehmiMessageType=invalid"
 
-* test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is not found with an invalid CPR"
+* test[=].action[+].assert.description = "Ensure the PatientDeliveryStatus AuditEvent is not found with an invalid message type"
 * test[=].action[=].assert.direction = #response
 * test[=].action[=].assert.warningOnly = false
 * test[=].action[=].assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.id = '${IdOfResourceToBeCreated}').count()"

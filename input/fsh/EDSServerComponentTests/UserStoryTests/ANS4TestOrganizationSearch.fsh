@@ -1,7 +1,7 @@
 Instance: ANS4TestOrgSearch
 InstanceOf: TestScript
 Title: "Test for ANS.4 - Organization Searching"
-Description: "Test script for the ANS.4 use case. Searching for sender or receiver organization"
+Description: "Test script for the ANS.4 user story. Searching for sender or receiver organization"
 * insert Metadata(ANS4TestOrgSearch)
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
@@ -26,7 +26,7 @@ Description: "Test script for the ANS.4 use case. Searching for sender or receiv
 
 * test[+].id = "CreatePatientDeliveryStatus"
 * test[=].name = "ANS4 Create"
-* test[=].description = "Use case ANS4 create PatientDeliveryStatus object on the SUT in order to search for it later"
+* test[=].description = "user story ANS4 create PatientDeliveryStatus object on the SUT in order to search for it later"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#update
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Create a PatientDeliveryStatus AuditEvent resource on the SUT"
@@ -54,7 +54,7 @@ Description: "Test script for the ANS.4 use case. Searching for sender or receiv
 
 * test[+].id = "SearchPatientDeliveryStatusWithReceiverOrgSOR"
 * test[=].name = "ANS4 receiver org search SOR"
-* test[=].description = "Use case ANS4 search for the created PatientDeliveryStatus object on the SUT with receiver org SOR"
+* test[=].description = "user story ANS4 search for the created PatientDeliveryStatus object on the SUT with receiver org SOR"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the receiver organization, SOR"
@@ -72,7 +72,7 @@ Description: "Test script for the ANS.4 use case. Searching for sender or receiv
 
 * test[+].id = "SearchPatientDeliveryStatusWithReceiverOrgGLN"
 * test[=].name = "ANS4 receiver org search GLN"
-* test[=].description = "Use case ANS4 search for the created PatientDeliveryStatus object on the SUT with receiver org GLN"
+* test[=].description = "user story ANS4 search for the created PatientDeliveryStatus object on the SUT with receiver org GLN"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the receiver organization GLN"
@@ -90,7 +90,7 @@ Description: "Test script for the ANS.4 use case. Searching for sender or receiv
 
 * test[+].id = "SearchPatientDeliveryStatusWithReceiverOrgName"
 * test[=].name = "ANS4 receiver org search Name"
-* test[=].description = "Use case ANS4 search for the created PatientDeliveryStatus object on the SUT with receiver org Name"
+* test[=].description = "user story ANS4 search for the created PatientDeliveryStatus object on the SUT with receiver org Name"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the receiver organization, Name"
@@ -108,7 +108,7 @@ Description: "Test script for the ANS.4 use case. Searching for sender or receiv
 
 * test[+].id = "SearchPatientDeliveryStatusInvalidReceiverOrgDetails"
 * test[=].name = "ANS4 invalid receiver org search"
-* test[=].description = "Use case ANS4 search for the created PatientDeliveryStatus object on the SUT with an invalid receiver organization. Not expecting to find it"
+* test[=].description = "user story ANS4 search for the created PatientDeliveryStatus object on the SUT with an invalid receiver organization. Not expecting to find it"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with an invalid receiver organization"
@@ -138,7 +138,7 @@ Description: "Test script for the ANS.4 use case. Searching for sender or receiv
 
 * test[+].id = "SearchPatientDeliveryStatusWithSenderOrgSOR"
 * test[=].name = "ANS4 sender org search SOR"
-* test[=].description = "Use case ANS4 search for the created PatientDeliveryStatus object on the SUT with sender org SOR"
+* test[=].description = "user story ANS4 search for the created PatientDeliveryStatus object on the SUT with sender org SOR"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the sender organization, SOR"
@@ -156,7 +156,7 @@ Description: "Test script for the ANS.4 use case. Searching for sender or receiv
 
 * test[+].id = "SearchPatientDeliveryStatusWithSenderOrgGLN"
 * test[=].name = "ANS4 sender org search GLN"
-* test[=].description = "Use case ANS4 search for the created PatientDeliveryStatus object on the SUT with sender org GLN"
+* test[=].description = "user story ANS4 search for the created PatientDeliveryStatus object on the SUT with sender org GLN"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the sender organization GLN"
@@ -174,7 +174,7 @@ Description: "Test script for the ANS.4 use case. Searching for sender or receiv
 
 * test[+].id = "SearchPatientDeliveryStatusWithSenderOrgName"
 * test[=].name = "ANS4 sender org search name"
-* test[=].description = "Use case ANS4 search for the created PatientDeliveryStatus object on the SUT with sender org Name"
+* test[=].description = "user story ANS4 search for the created PatientDeliveryStatus object on the SUT with sender org Name"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the sender organization, Name"
@@ -192,7 +192,7 @@ Description: "Test script for the ANS.4 use case. Searching for sender or receiv
 
 * test[+].id = "SearchPatientDeliveryStatusInvalidSenderOrgDetails"
 * test[=].name = "ANS4 invalid search"
-* test[=].description = "Use case ANS4 search for the created PatientDeliveryStatus object on the SUT with an invalid sender organization. Not expecting to find it"
+* test[=].description = "user story ANS4 search for the created PatientDeliveryStatus object on the SUT with an invalid sender organization. Not expecting to find it"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with an invalid sender organization"

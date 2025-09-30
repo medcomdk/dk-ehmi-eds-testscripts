@@ -1,7 +1,7 @@
 Instance: ANS6TestMessageIdentifierSearching
 InstanceOf: TestScript
 Title: "Test for ANS.6 - Message Identifier Searching"
-Description: "Test script for the ANS.6 use case. Searching for messages with a specific identifier"
+Description: "Test script for the ANS.6 user story. Searching for messages with a specific identifier"
 * insert Metadata(ANS6TestMessageIdentifierSearching)
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
@@ -26,7 +26,7 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 
 * test[+].id = "CreatePatientDeliveryStatus"
 * test[=].name = "ANS6 Create"
-* test[=].description = "Use case ANS6 create PatientDeliveryStatus object on the SUT in order to search for it later"
+* test[=].description = "user story ANS6 create PatientDeliveryStatus object on the SUT in order to search for it later"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#update
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Create a PatientDeliveryStatus AuditEvent resource on the SUT"
@@ -62,7 +62,7 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 
 * test[+].id = "SearchPatientDeliveryStatusWithEhmiMessageIdentifier"
 * test[=].name = "ANS6 search with ehmi message identifier"
-* test[=].description = "Use case ANS6 search for the created PatientDeliveryStatus object on the SUT with the ehmiMessage identifier"
+* test[=].description = "user story ANS6 search for the created PatientDeliveryStatus object on the SUT with the ehmiMessage identifier"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the ehmiMessage identifier"
@@ -80,7 +80,7 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 
 * test[+].id = "SearchPatientDeliveryStatusWithEhmiMessageEnvelopeIdentifier"
 * test[=].name = "ANS6 search with ehmi message envelope identifier"
-* test[=].description = "Use case ANS6 search for the created PatientDeliveryStatus object on the SUT with the ehmiMessageEnvelope identifier"
+* test[=].description = "user story ANS6 search for the created PatientDeliveryStatus object on the SUT with the ehmiMessageEnvelope identifier"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the ehmiMessageEnvelope identifier"
@@ -98,7 +98,7 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 
 * test[+].id = "SearchPatientDeliveryStatusWithEhmiTransportEnvelopeIdentifier"
 * test[=].name = "ANS6 search with ehmi transport envelope identifier"
-* test[=].description = "Use case ANS6 search for the created PatientDeliveryStatus object on the SUT with the ehmiTransportEnvelope identifier"
+* test[=].description = "user story ANS6 search for the created PatientDeliveryStatus object on the SUT with the ehmiTransportEnvelope identifier"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the ehmiTransportEnvelope identifier"
@@ -116,7 +116,7 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 
 * test[+].id = "SearchPatientDeliveryStatusWithEhmiOrigMessageIdentifier"
 * test[=].name = "ANS6 search with ehmi orig envelope identifier"
-* test[=].description = "Use case ANS6 search for the created PatientDeliveryStatus object on the SUT with the ehmiOrigMessageIdentifier identifier"
+* test[=].description = "user story ANS6 search for the created PatientDeliveryStatus object on the SUT with the ehmiOrigMessageIdentifier identifier"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the ehmiOrigMessageIdentifier identifier"
@@ -134,7 +134,7 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 
 * test[+].id = "SearchPatientDeliveryStatusWithEhmiOrigTransportEnvelopeIdentifier"
 * test[=].name = "ANS6 search with ehmi orig transport envelope identifier"
-* test[=].description = "Use case ANS6 search for the created PatientDeliveryStatus object on the SUT with the ehmiOrigTransportEnvelope identifier"
+* test[=].description = "user story ANS6 search for the created PatientDeliveryStatus object on the SUT with the ehmiOrigTransportEnvelope identifier"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with the ehmiOrigTransportEnvelope identifier"
@@ -152,7 +152,7 @@ Description: "Test script for the ANS.6 use case. Searching for messages with a 
 
 * test[+].id = "SearchPatientDeliveryStatusWithInvalidEhmiIdentifier"
 * test[=].name = "ANS6 search"
-* test[=].description = "Use case ANS6 search for the created PatientDeliveryStatus object on the SUT with an invalid ehmi identifier"
+* test[=].description = "user story ANS6 search for the created PatientDeliveryStatus object on the SUT with an invalid ehmi identifier"
 * test[=].action[+].operation.type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
 * test[=].action[=].operation.resource = #AuditEvent
 * test[=].action[=].operation.description = "Search for the PatientDeliveryStatus AuditEvent with an invalid ehmi identifier"
