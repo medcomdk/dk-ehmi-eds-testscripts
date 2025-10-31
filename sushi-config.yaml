@@ -15,8 +15,8 @@ publisher:
   email: ehmi@medcom.dk
 
 dependencies:
-  dk.ehmi.eds: dev
-  dk.ehmi.eer: dev
+  dk.ehmi.eds: current
+  dk.ehmi.eer: current
 
 menu:
   Home: index.html

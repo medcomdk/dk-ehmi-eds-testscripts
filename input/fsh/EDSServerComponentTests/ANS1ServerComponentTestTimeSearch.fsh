@@ -1,9 +1,8 @@
 RuleSet: ServerComponent-ANS1TestTimeframeSearch(xmlOrJson)
-* insert Metadata(ServerComponent-ANS1TestTimeframeSearch)
+* insert Metadata(ServerComponent-ANS1TestTimeframeSearch{xmlOrJson})
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer
-// TODO: Update the descriptions on test suite level and the individual tests to reflect that the resources must be created manually on the SUT before running the test
 
 * fixture[+]
   * id = "EdsPatientDeliveryStatusCreateFixture"

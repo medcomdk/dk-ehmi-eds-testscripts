@@ -1,6 +1,6 @@
 Instance: EerEUADeviceFixture
 // TODO: If my EER PR's goes through. Change this to just EERDevice
-InstanceOf: EerDeviceEUA
+InstanceOf: Device
 Description: "An instance of a C1 EUA Sender Device Fixture"
 * insert OverrideGeneratedFileNameHelper(EerEUADeviceFixture)
 * identifier[+].value = "touchstone-eua-device-for-testing"

@@ -1,5 +1,5 @@
 RuleSet: ServerComponent-ANS4TestOrgSearch(xmlOrJson)
-* insert Metadata(ServerComponent-ANS4TestOrgSearch)
+* insert Metadata(ServerComponent-ANS4TestOrgSearch{xmlOrJson})
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer
@@ -67,12 +67,12 @@ RuleSet: ServerComponent-ANS4TestOrgSearch(xmlOrJson)
     * accept = #{xmlOrJson}
     * params = "?receiverOrg=${GLNOfReceiverOrganization}"
   * action[+].assert
-    * assert.description = "Ensure the PatientDeliveryStatus AuditEvent is found"
-    * assert.direction = #response
-    * assert.warningOnly = false
-    * assert.expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.recorded = '${RecordedOfResourceToFindInSearch}').count()"
-    * assert.operator = #equals
-    * assert.value = "1"
+    * description = "Ensure the PatientDeliveryStatus AuditEvent is found"
+    * direction = #response
+    * warningOnly = false
+    * expression = "Bundle.entry.where(resource.resourceType = 'AuditEvent' and resource.recorded = '${RecordedOfResourceToFindInSearch}').count()"
+    * operator = #equals
+    * value = "1"
 
 * test[+]
   * id = "SearchPatientDeliveryStatusWithReceiverOrgName"

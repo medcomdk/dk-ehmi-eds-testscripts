@@ -1,5 +1,5 @@
 RuleSet: ServerComponent-ANS3TestCprSearch(xmlOrJson)
-* insert Metadata(ServerComponent-ANS3TestCprSearch)
+* insert Metadata(ServerComponent-ANS3TestCprSearch{xmlOrJson})
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer

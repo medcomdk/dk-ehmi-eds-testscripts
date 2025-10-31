@@ -1,5 +1,5 @@
 RuleSet: ServerComponent-ANS2TestMessageTypeSearch(xmlOrJson)
-* insert Metadata(ServerComponent-ANS2TestMessageTypeSearch)
+* insert Metadata(ServerComponent-ANS2TestMessageTypeSearch{xmlOrJson})
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer

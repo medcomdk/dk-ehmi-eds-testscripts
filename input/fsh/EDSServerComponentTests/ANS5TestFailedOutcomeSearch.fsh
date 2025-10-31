@@ -1,5 +1,5 @@
 RuleSet: ServerComponent-ANS5TestFailedOutcomeSearch(xmlOrJson)
-* insert Metadata(ServerComponent-ANS5TestFailedOutcomeSearch)
+* insert Metadata(ServerComponent-ANS5TestFailedOutcomeSearch{xmlOrJson})
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer
