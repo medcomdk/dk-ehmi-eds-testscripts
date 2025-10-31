@@ -16,6 +16,7 @@ publisher:
 
 dependencies:
   dk.ehmi.eds: dev
+  dk.ehmi.eer: dev
 
 menu:
   Home: index.html

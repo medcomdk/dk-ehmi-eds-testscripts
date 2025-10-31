@@ -1,37 +1,33 @@
-Instance: C1EUAToEdsFixture
+Instance: EdsPatientDeliveryStatusCreateFixture
 InstanceOf: EdsPatientDeliveryStatus
 Description: "A fixture representing an EdsPatientDeliveryStatus resource sent from an EUA to EDS."
-* contained[+] = C1EUASenderDeviceFixture
+* insert OverrideGeneratedFileNameHelper(EdsPatientDeliveryStatusCreateFixture)
 * type = $EhmiDeliveryStatusTypes#ehmiMessaging "EHMI messaging event"
 * subtype = $EdsSubtypes#msg-created-and-sent "Message created and sent"
-* recorded = "1970-01-01T00:00:00.000+02:00" // Replaced by Touchstone CurrentDateTime function
+* recorded = "1997-02-02T19:18:11.111+01:00"
 * outcome = $Hl7AuditOutcomeTypes#0 "Success"
 
-* id = "C1EUAToEdsFixture"
-
-* agent[ehmiSender].name = "Aarhus Kommune - Test D-CS-C6-CE"
+* agent[ehmiSender].name = "Touchstone TEST EHMI Sender"
 * agent[ehmiSender].requestor = true
 * agent[ehmiSender].type = $EhmiDeliveryStatusParticipationRoleType#ehmiSender "Sender"
-* agent[ehmiSender].who.display = "Aarhus Kommune"
-* agent[ehmiSender].who.identifier.value = "1D-CS-C15-CE"
+* agent[ehmiSender].who.identifier.value = "urn:uuid:b4f04f14-80ad-4979-85c8-ec5cc3d40dce"
 * agent[ehmiSender].extension[GLNId].valueIdentifier.type = $EhmiDeliveryStatusAgentWhoIdentifierTypes#GLN 
-* agent[ehmiSender].extension[GLNId].valueIdentifier.value = "1D-CS-C12-CE"
+* agent[ehmiSender].extension[GLNId].valueIdentifier.value = "1111111111111"
 
-* agent[ehmiReceiver].name = "Lægerne Stjernepladsen - Test D-CS-C6-CE"
+* agent[ehmiReceiver].name = "Touchstone TEST EHMI Receiver"
 * agent[ehmiReceiver].requestor = false
 * agent[ehmiReceiver].type = $EhmiDeliveryStatusParticipationRoleType#ehmiReceiver "Receiver"
-* agent[ehmiReceiver].who.display = "Lægerne Stjernepladsen I/S"
-* agent[ehmiReceiver].who.identifier.value = "2D-CS-C15-CE"
+* agent[ehmiReceiver].who.identifier.value = "urn:uuid:290a1c7c-a47c-4865-8a1a-0a784ed0deaf"
 * agent[ehmiReceiver].extension[GLNId].valueIdentifier.type = $EhmiDeliveryStatusAgentWhoIdentifierTypes#GLN 
-* agent[ehmiReceiver].extension[GLNId].valueIdentifier.value = "2D-CS-C12-CE"
+* agent[ehmiReceiver].extension[GLNId].valueIdentifier.value = "1111111111112"
 
-* source.observer = Reference(C1EUASenderDeviceFixture)
+* source.observer.identifier.value = "touchstone-eua-device-for-testing"
 * source.type = $EhmiDeliveryStatusSourceType#EUA "EUA (End-user Application)"
 
-* entity[ehmiPatient].what.identifier.value = "D-CS-C10-CE"
+* entity[ehmiPatient].what.identifier.value = "urn:uuid:d650e137-3815-4066-86f5-7f9ece964a62"
 * entity[ehmiPatient].type = $EhmiDeliveryStatusEntityType#ehmiPatient "Patient"
 
-* entity[ehmiMessage].what.identifier.value = "D-CS-C11-CE"
+* entity[ehmiMessage].what.identifier.value = "urn:uuid:72ef4757-2e28-41c4-9c84-636219d1198a"
 * entity[ehmiMessage].type = $EhmiDeliveryStatusEntityType#ehmiMessage "Message"
 * entity[ehmiMessage].detail[ehmiMessageType].type = #ehmiMessageType
 * entity[ehmiMessage].detail[ehmiMessageType].valueString = "HomeCareObservation"
@@ -39,26 +35,26 @@ Description: "A fixture representing an EdsPatientDeliveryStatus resource sent f
 * entity[ehmiMessage].detail[ehmiMessageVersion].valueString = "1.1"
 
 * entity[ehmiMessageEnvelope].type = $EhmiDeliveryStatusEntityType#ehmiMessageEnvelope "Message Envelope"
-* entity[ehmiMessageEnvelope].what.identifier.value = "9f322022-7857-4453-a1ed-1e4a62dd8543"
+* entity[ehmiMessageEnvelope].what.identifier.value = "urn:uuid:70639346-5ce5-4dd7-b5be-1e4d95572a91"
 * entity[ehmiMessageEnvelope].detail[ehmiMessageEnvelopeType].type = #ehmiMessageEnvelopeType
-* entity[ehmiMessageEnvelope].detail[ehmiMessageEnvelopeType].valueString = "21bfa788-df1e-445d-95dc-56ea7a2fcd5b"
+* entity[ehmiMessageEnvelope].detail[ehmiMessageEnvelopeType].valueString = "FHIR Bundle"
 
 * entity[ehmiTransportEnvelope].type = $EhmiDeliveryStatusEntityType#ehmiTransportEnvelope "Transport Envelope"
-* entity[ehmiTransportEnvelope].what.identifier.value = "0b682f55-eca9-4915-b8b5-675c3320ca93"
+* entity[ehmiTransportEnvelope].what.identifier.value = "urn:uuid:0b682f55-eca9-4915-b8b5-675c3320ca93"
 * entity[ehmiTransportEnvelope].detail[ehmiTransportEnvelopeType].type = #ehmiTransportEnvelopeType
 * entity[ehmiTransportEnvelope].detail[ehmiTransportEnvelopeType].valueString = "SBDH"
 * entity[ehmiTransportEnvelope].detail[ehmiTransportEnvelopeVersion].type = #ehmiTransportEnvelopeVersion
 * entity[ehmiTransportEnvelope].detail[ehmiTransportEnvelopeVersion].valueString = "2.0"
 
 * entity[ehmiOrigMessage].type = $EhmiDeliveryStatusEntityType#ehmiOrigMessage "Original Message"
-* entity[ehmiOrigMessage].what.identifier.value = "c38778b5-48c9-4243-b956-f9f754bdbc67"
+* entity[ehmiOrigMessage].what.identifier.value = "urn:uuid:c38778b5-48c9-4243-b956-f9f754bdbc67"
 * entity[ehmiOrigMessage].detail[ehmiMessageType].type = #ehmiMessageType
 * entity[ehmiOrigMessage].detail[ehmiMessageType].valueString = "HomeCareObservation"
 * entity[ehmiOrigMessage].detail[ehmiMessageVersion].type = #ehmiMessageVersion
 * entity[ehmiOrigMessage].detail[ehmiMessageVersion].valueString = "1.1"
 
 * entity[ehmiOrigTransportEnvelope].type = $EhmiDeliveryStatusEntityType#ehmiOrigTransportEnvelope "Original Transport Envelope"
-* entity[ehmiOrigTransportEnvelope].what.identifier.value = "389ebc9f-792e-43e6-8943-dda5632a7654"
+* entity[ehmiOrigTransportEnvelope].what.identifier.value = "urn:uuid:389ebc9f-792e-43e6-8943-dda5632a7654"
 * entity[ehmiOrigTransportEnvelope].detail[ehmiTransportEnvelopeType].type = #ehmiTransportEnvelopeType
 * entity[ehmiOrigTransportEnvelope].detail[ehmiTransportEnvelopeType].valueString = "SBDH"
 * entity[ehmiOrigTransportEnvelope].detail[ehmiTransportEnvelopeVersion].type = #ehmiTransportEnvelopeVersion
