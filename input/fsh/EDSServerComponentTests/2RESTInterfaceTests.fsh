@@ -1,5 +1,6 @@
-RuleSet: ServerComponent-RESTInterfaceTests(xmlOrJson)
-* insert Metadata(ServerComponent-2RESTInterfaceTests{xmlOrJson})
+// TODO: Touchstone skal kunne snakke med keycloack for at få et token. Snak med Christian
+RuleSet: Server-RESTInterfaceTests(xmlOrJson)
+* insert Metadata(Server-2RESTInterfaceTests{xmlOrJson})
 * insert CapabilitiesProfile
 * insert OriginClient
 * insert DestinationServer
@@ -26,7 +27,7 @@ RuleSet: ServerComponent-RESTInterfaceTests(xmlOrJson)
     * description = "Ensure the resource type is CapabilityStatement"
     * direction = #response
     * warningOnly = false
-    * resource = "CapabilityStatement"
+    * resource = #CapabilityStatement
   * action[+].assert
     * description = "Ensure that the returned CapabilityStatement is valid"
     * direction = #response

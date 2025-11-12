@@ -1,5 +1,5 @@
-RuleSet: ServerComponent-ANS6TestMessageIdentifierSearching(xmlOrJson)
-* insert Metadata(ServerComponent-ANS6TestMessageIdentifierSearching{xmlOrJson})
+RuleSet: Server-ANS6TestMessageIdentifierSearching(xmlOrJson)
+* insert Metadata(Server-ANS6TestMessageIdentifierSearching-{xmlOrJson})
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer

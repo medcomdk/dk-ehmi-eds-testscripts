@@ -1,5 +1,5 @@
-RuleSet: ServerComponent-ANS4TestOrgSearch(xmlOrJson)
-* insert Metadata(ServerComponent-ANS4TestOrgSearch{xmlOrJson})
+RuleSet: Server-ANS4TestOrgSearch(xmlOrJson)
+* insert Metadata(Server-ANS4TestOrgSearch-{xmlOrJson})
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer

@@ -2,7 +2,7 @@ Instance: InternalUseLoadEDSResources
 InstanceOf: TestScript
 Title: "INTERNAL - Load resources"
 Description: "Loads the necessary resources for the EDS Server Component Tests. Not meant for use in test suites."
-* insert Metadata(ServerComponent-1InternalUseLoadEDSResources)
+* insert Metadata(Server-1InternalUseLoadEDSResources)
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer
@@ -46,6 +46,18 @@ Description: "Loads the necessary resources for the EDS Server Component Tests. 
   * description = "Creates the necessary resources for the EDS Server Component Tests"
 
   * action[+].operation
+    * type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#search
+    * description = "GET all EdsPatientDeliveryStatusCreateFixture from previous test runs if they exist"
+    * resource = #AuditEvent
+    * encodeRequestUrl = true
+    * origin = 1
+    * contentType = #json
+    * destination = 1
+    * accept = #json
+    * params = "?date=${EdsPatientDeliveryStatusCreateFixtureRecorded}"
+    * responseId = "PreviousEdsPatientDeliveryStatusCreateFixtures"
+
+  * action[+].operation
     * type = http://terminology.hl7.org/CodeSystem/testscript-operation-codes#delete
     * description = "Delete EdsPatientDeliveryStatusCreateFixture from previous test runs if it exists"
     * resource = #AuditEvent
@@ -54,7 +66,7 @@ Description: "Loads the necessary resources for the EDS Server Component Tests. 
     * contentType = #json
     * destination = 1
     * accept = #json
-    * params = "?recorded=${EdsPatientDeliveryStatusCreateFixtureRecorded}"
+    * params = "?date=${EdsPatientDeliveryStatusCreateFixtureRecorded}"
   * action[+].assert
     * description = "Confirm that the returned HTTP status is either 200(OK), 204(No Content) or 404(Not Found)."
     * operator = #in
@@ -85,7 +97,7 @@ Description: "Loads the necessary resources for the EDS Server Component Tests. 
     * contentType = #json
     * destination = 1
     * accept = #json
-    * params = "?recorded=${EdsPatientDeliveryStatusFailureFixtureRecorded}"
+    * params = "?date=${EdsPatientDeliveryStatusFailureFixtureRecorded}"
   * action[+].assert
     * description = "Confirm that the returned HTTP status is either 200(OK), 204(No Content) or 404(Not Found)."
     * operator = #in

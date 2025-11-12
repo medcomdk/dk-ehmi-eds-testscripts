@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# TODO: Update the script to put the Client and Server and Internal testscripts into subfolders to make a proper folderstructure
 from __future__ import annotations
 import argparse
 import os

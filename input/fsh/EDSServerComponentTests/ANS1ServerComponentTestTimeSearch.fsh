@@ -1,5 +1,5 @@
-RuleSet: ServerComponent-ANS1TestTimeframeSearch(xmlOrJson)
-* insert Metadata(ServerComponent-ANS1TestTimeframeSearch{xmlOrJson})
+RuleSet: Server-ANS1TestTimeframeSearch(xmlOrJson)
+* insert Metadata(Server-ANS1TestTimeframeSearch-{xmlOrJson})
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer
