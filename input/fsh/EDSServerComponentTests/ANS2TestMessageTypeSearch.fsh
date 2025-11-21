@@ -8,7 +8,7 @@ RuleSet: Server-ANS2TestMessageTypeSearch(xmlOrJson)
   * id = "EdsPatientDeliveryStatusCreateFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
+  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusCreateFixture.{xmlOrJson}"
 
 * variable[+]
   * name = "RecordedOfResourceToFindInSearch"

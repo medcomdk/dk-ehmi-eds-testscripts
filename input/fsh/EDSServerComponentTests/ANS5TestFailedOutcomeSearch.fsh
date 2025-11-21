@@ -8,7 +8,7 @@ RuleSet: Server-ANS5TestFailedOutcomeSearch(xmlOrJson)
   * id = "EdsPatientDeliveryStatusFailureFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusFailureFixture.json"
+  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusFailureFixture.{xmlOrJson}"
 
 * variable[+]
   * name = "RecordedOfResourceToFindInSearch"
