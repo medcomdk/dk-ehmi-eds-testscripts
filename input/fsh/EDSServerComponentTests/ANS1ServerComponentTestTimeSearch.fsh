@@ -8,7 +8,7 @@ RuleSet: Server-ANS1TestTimeframeSearch(xmlOrJson)
   * id = "EdsPatientDeliveryStatusCreateFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "./Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
+  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
 
 * variable[+]
   * name = "RecordedOfResourceToFindInSearch"
@@ -69,15 +69,14 @@ RuleSet: Server-ANS1TestTimeframeSearch(xmlOrJson)
     * operator = #equals
     * value = "0"
 
-Instance: ServerComponent-ANS1TestTimeframeSearchJson
+Instance: Server-ANS1TestTimeframeSearchJson
 InstanceOf: TestScript
 Title: "Test for ANS.1 - Timeframe Searching JSON format"
 Description: "Test script for the ANS.1 user story. Searching in a given timeframe with JSON format"
-* insert ServerComponent-ANS1TestTimeframeSearch(json)
+* insert Server-ANS1TestTimeframeSearch(json)
 
-Instance: ServerComponent-ANS1TestTimeframeSearchXml
+Instance: Server-ANS1TestTimeframeSearchXml
 InstanceOf: TestScript
 Title: "Test for ANS.1 - Timeframe Searching XML format"
 Description: "Test script for the ANS.1 user story. Searching in a given timeframe with XML format"
-* insert ServerComponent-ANS1TestTimeframeSearch(xml)
-
+* insert Server-ANS1TestTimeframeSearch(xml)

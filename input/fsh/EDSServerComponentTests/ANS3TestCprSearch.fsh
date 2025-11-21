@@ -8,7 +8,7 @@ RuleSet: Server-ANS3TestCprSearch(xmlOrJson)
   * id = "EdsPatientDeliveryStatusCreateFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "./Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
+  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
 
 * variable[+]
   * name = "RecordedOfResourceToFindInSearch"
@@ -64,14 +64,14 @@ RuleSet: Server-ANS3TestCprSearch(xmlOrJson)
     * operator = #equals
     * value = "0"
 
-Instance: ServerComponent-ANS3TestCprSearchJson
+Instance: Server-ANS3TestCprSearchJson
 InstanceOf: TestScript
 Title: "Test for ANS.3 - CPR Searching JSON format"
 Description: "Test script for the ANS.3 user story. Searching with CPR in JSON format"
-* insert ServerComponent-ANS3TestCprSearch(json)
+* insert Server-ANS3TestCprSearch(json)
 
-Instance: ServerComponent-ANS3TestCprSearchXml
+Instance: Server-ANS3TestCprSearchXml
 InstanceOf: TestScript
 Title: "Test for ANS.3 - CPR Searching XML format"
 Description: "Test script for the ANS.3 user story. Searching with CPR in XML format"
-* insert ServerComponent-ANS3TestCprSearch(xml)
+* insert Server-ANS3TestCprSearch(xml)

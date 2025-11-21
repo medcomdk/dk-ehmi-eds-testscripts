@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# TODO: Update the script to put the Client and Server and Internal testscripts into subfolders to make a proper folderstructure
 from __future__ import annotations
 import argparse
 import os
@@ -317,10 +316,28 @@ def move_fixture_jsons(resources_dir: Path, dry_run: bool) -> None:
     print(f"📦 Fixture JSONs moved: {moved}" + (" (dry-run)" if dry_run else ""))
 
 
+def _tests_subdir_for(name: str) -> str | None:
+    """
+    Decide which tests subfolder (if any) a file should go into 
+    based on its filename prefix.
+    """
+    if name.startswith("TestScript-InternalServer"):
+        return "InternalServerTests"
+    if name.startswith("TestScript-Server"):
+        return "ServerTests"
+    if name.startswith("TestScript-Client"):
+        return "ClientTests"
+    return None
+
 def merge_move(src: Path, dst: Path, dry_run: bool) -> None:
     """
     Move files/dirs from src into dst, overwriting/merging as needed.
     Skips anything whose name starts with 'ImplementationGuide'.
+
+    Additionally, when placing files into dst:
+      - Names starting with 'InternalServer' go into 'InternalServerTests'
+      - Names starting with 'Server' go into 'ServerTests'
+      - Names starting with 'Client' go into 'ClientTests'
     """
     if dry_run:
         print(f"🧪 Would ensure target directory exists: {dst}")
@@ -333,8 +350,15 @@ def merge_move(src: Path, dst: Path, dry_run: bool) -> None:
             print(f"⤴️  Skipping (per rule): {item}")
             continue
 
+        # Default target in dst
         target = dst / name
+
         if item.is_file():
+            # Decide if this file belongs in one of the tests subfolders
+            subdir = _tests_subdir_for(name)
+            if subdir:
+                target = dst / subdir / name
+
             if dry_run:
                 print(f"🧪 Would move file: {item} -> {target} (overwrite if exists)")
             else:
@@ -345,6 +369,7 @@ def merge_move(src: Path, dst: Path, dry_run: bool) -> None:
                     shutil.move(str(item), str(target))
                 except Exception as e:
                     print(f"❌ Failed to move file {item} -> {target}: {e}")
+
         elif item.is_dir():
             if dry_run:
                 print(f"🧪 Would merge/move directory: {item} -> {target} (overwrite contents)")

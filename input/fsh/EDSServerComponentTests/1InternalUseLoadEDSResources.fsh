@@ -1,8 +1,8 @@
-Instance: InternalUseLoadEDSResources
+Instance: InternalServerLoadEDSResources
 InstanceOf: TestScript
 Title: "INTERNAL - Load resources"
 Description: "Loads the necessary resources for the EDS Server Component Tests. Not meant for use in test suites."
-* insert Metadata(Server-1InternalUseLoadEDSResources)
+* insert Metadata(InternalServer-1InternalUseLoadEDSResources)
 * insert EDSPatientDeliveryStatusProfile
 * insert OriginClient
 * insert DestinationServer
@@ -11,7 +11,7 @@ Description: "Loads the necessary resources for the EDS Server Component Tests. 
   * id = "EdsPatientDeliveryStatusCreateFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "./Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
+  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
 
 * variable[+]
   * name = "EdsPatientDeliveryStatusCreateFixtureRecorded"
@@ -22,7 +22,7 @@ Description: "Loads the necessary resources for the EDS Server Component Tests. 
   * id = "EdsPatientDeliveryStatusFailureFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "./Fixtures/EdsPatientDeliveryStatusFailureFixture.json"
+  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusFailureFixture.json"
 
 * variable[+]
   * name = "EdsPatientDeliveryStatusFailureFixtureRecorded"
@@ -33,7 +33,7 @@ Description: "Loads the necessary resources for the EDS Server Component Tests. 
   * id = "EerEuaDeviceFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "./Fixtures/EerEUADeviceFixture.json"
+  * resource.reference = "../Fixtures/EerEUADeviceFixture.json"
 
 * variable[+]
   * name = "EerEuaDeviceFixtureIdentifier"

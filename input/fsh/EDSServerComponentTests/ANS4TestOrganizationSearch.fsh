@@ -8,7 +8,7 @@ RuleSet: Server-ANS4TestOrgSearch(xmlOrJson)
   * id = "EdsPatientDeliveryStatusCreateFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "./Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
+  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
 
 * variable[+]
   * name = "RecordedOfResourceToFindInSearch"
@@ -221,14 +221,14 @@ RuleSet: Server-ANS4TestOrgSearch(xmlOrJson)
     * operator = #equals
     * value = "0"
 
-Instance: ServerComponent-ANS4TestOrgSearchJson
+Instance: Server-ANS4TestOrgSearchJson
 InstanceOf: TestScript
 Title: "Test for ANS.4 - Organization Searching JSON format"
 Description: "Test script for the ANS.4 user story. Searching for sender or receiver organization in JSON format"
-* insert ServerComponent-ANS4TestOrgSearch(json)
+* insert Server-ANS4TestOrgSearch(json)
 
-Instance: ServerComponent-ANS4TestOrgSearchXml
+Instance: Server-ANS4TestOrgSearchXml
 InstanceOf: TestScript
 Title: "Test for ANS.4 - Organization Searching XML format"
 Description: "Test script for the ANS.4 user story. Searching for sender or receiver organization in XML format"
-* insert ServerComponent-ANS4TestOrgSearch(xml)
+* insert Server-ANS4TestOrgSearch(xml)

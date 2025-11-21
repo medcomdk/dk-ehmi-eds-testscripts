@@ -8,7 +8,7 @@ RuleSet: Server-ANS2TestMessageTypeSearch(xmlOrJson)
   * id = "EdsPatientDeliveryStatusCreateFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "./Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
+  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
 
 * variable[+]
   * name = "RecordedOfResourceToFindInSearch"
@@ -62,14 +62,14 @@ RuleSet: Server-ANS2TestMessageTypeSearch(xmlOrJson)
     * operator = #equals
     * value = "0"
 
-Instance: ServerComponent-ANS2TestMessageTypeSearchJson
+Instance: Server-ANS2TestMessageTypeSearchJson
 InstanceOf: TestScript
 Title: "Test for ANS.2 - Message Type Searching JSON format"
 Description: "Test script for the ANS.2 user story. Searching for a specific message type in JSON format"
-* insert ServerComponent-ANS2TestMessageTypeSearch(json)
+* insert Server-ANS2TestMessageTypeSearch(json)
 
-Instance: ServerComponent-ANS2TestMessageTypeSearchXml
+Instance: Server-ANS2TestMessageTypeSearchXml
 InstanceOf: TestScript
 Title: "Test for ANS.2 - Message Type Searching XML format"
 Description: "Test script for the ANS.2 user story. Searching for a specific message type in XML format"
-* insert ServerComponent-ANS2TestMessageTypeSearch(xml)
+* insert Server-ANS2TestMessageTypeSearch(xml)

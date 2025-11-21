@@ -8,7 +8,7 @@ RuleSet: Server-ANS6TestMessageIdentifierSearching(xmlOrJson)
   * id = "EdsPatientDeliveryStatusCreateFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "./Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
+  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusCreateFixture.json"
 
 * variable[+]
   * name = "RecordedOfResourceToFindInSearch"
@@ -172,14 +172,14 @@ RuleSet: Server-ANS6TestMessageIdentifierSearching(xmlOrJson)
     * operator = #equals
     * value = "0"
 
-Instance: ServerComponent-ANS6TestMessageIdentifierSearchingJson
+Instance: Server-ANS6TestMessageIdentifierSearchingJson
 InstanceOf: TestScript
 Title: "Test for ANS.6 - Message Identifier Searching JSON format"
 Description: "Test script for the ANS.6 user story. Searching for messages with a specific identifier in JSON format"
-* insert ServerComponent-ANS6TestMessageIdentifierSearching(json)
+* insert Server-ANS6TestMessageIdentifierSearching(json)
 
-Instance: ServerComponent-ANS6TestMessageIdentifierSearchingXml
+Instance: Server-ANS6TestMessageIdentifierSearchingXml
 InstanceOf: TestScript
 Title: "Test for ANS.6 - Message Identifier Searching XML format"
 Description: "Test script for the ANS.6 user story. Searching for messages with a specific identifier in XML format"
-* insert ServerComponent-ANS6TestMessageIdentifierSearching(xml)
+* insert Server-ANS6TestMessageIdentifierSearching(xml)

@@ -1,5 +1,4 @@
-// TODO: Touchstone skal kunne snakke med keycloack for at få et token. Snak med Christian
-RuleSet: Server-RESTInterfaceTests(xmlOrJson)
+RuleSet: Server-2RESTInterfaceTests(xmlOrJson)
 * insert Metadata(Server-2RESTInterfaceTests{xmlOrJson})
 * insert CapabilitiesProfile
 * insert OriginClient
@@ -48,14 +47,14 @@ RuleSet: Server-RESTInterfaceTests(xmlOrJson)
     * operator = #equals
     * value = "0"
 
-Instance: ServerComponent-RESTInterfaceTestsJSON
+Instance: Server-2RESTInterfaceTestsJSON
 InstanceOf: TestScript
 Title: "REST Interface Tests for EDS Server Component JSON"
 Description: "Test script for REST interface tests of the EDS Server Component JSON"
-* insert ServerComponent-RESTInterfaceTests(json)
+* insert Server-2RESTInterfaceTests(json)
 
-Instance: ServerComponent-RESTInterfaceTestsXml
+Instance: Server-2RESTInterfaceTestsXml
 InstanceOf: TestScript
 Title: "REST Interface Tests for EDS Server Component XML"
 Description: "Test script for REST interface tests of the EDS Server Component XML"
-* insert ServerComponent-RESTInterfaceTests(xml)
+* insert Server-2RESTInterfaceTests(xml)

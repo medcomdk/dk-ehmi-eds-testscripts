@@ -8,7 +8,7 @@ RuleSet: Server-ANS5TestFailedOutcomeSearch(xmlOrJson)
   * id = "EdsPatientDeliveryStatusFailureFixture"
   * autocreate = false
   * autodelete = false
-  * resource.reference = "./Fixtures/EdsPatientDeliveryStatusFailureFixture.json"
+  * resource.reference = "../Fixtures/EdsPatientDeliveryStatusFailureFixture.json"
 
 * variable[+]
   * name = "RecordedOfResourceToFindInSearch"
@@ -64,14 +64,14 @@ RuleSet: Server-ANS5TestFailedOutcomeSearch(xmlOrJson)
     * operator = #equals
     * value = "0"
 
-Instance: ServerComponent-ANS5TestFailedOutcomeSearchJson
+Instance: Server-ANS5TestFailedOutcomeSearchJson
 InstanceOf: TestScript
 Title: "Test for ANS.5 - Failed Outcome Searching JSON format"
 Description: "Test script for the ANS.5 user story. Searching for messages with a failed outcome in JSON format"
-* insert ServerComponent-ANS5TestFailedOutcomeSearch(json)
+* insert Server-ANS5TestFailedOutcomeSearch(json)
 
-Instance: ServerComponent-ANS5TestFailedOutcomeSearchXml
+Instance: Server-ANS5TestFailedOutcomeSearchXml
 InstanceOf: TestScript
 Title: "Test for ANS.5 - Failed Outcome Searching XML format"
 Description: "Test script for the ANS.5 user story. Searching for messages with a failed outcome in XML format"
-* insert ServerComponent-ANS5TestFailedOutcomeSearch(xml)
+* insert Server-ANS5TestFailedOutcomeSearch(xml)
